@@ -7,8 +7,8 @@ bot.on("ready", function() {
 });
 
 bot.on("message", message => {
-  if (message.content === "ping") {
-    message.reply("pong !");
+  if (message.content.match(/(.*)belucat(.*)/gi)) {
+    message.reply("Mew !");
   }
 });
 
