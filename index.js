@@ -12,4 +12,10 @@ bot.on("message", message => {
   }
 });
 
+bot.on("message", message => {
+  if (message.content.match(/(.*) (cat|chat)(.*)/gi)) {
+    message.react("🐈");
+  }
+});
+
 bot.login(config.discord_token);
