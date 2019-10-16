@@ -1,5 +1,11 @@
 const Discord = require("discord.js");
-const config = require("./config.json");
+let token = "";
+try {
+  const config = require("./config.json");
+  token = config.discord_token;
+} catch {
+  token = process.env.DISCORD_TOKEN;
+}
 const bot = new Discord.Client();
 
 bot.on("ready", function() {
@@ -18,4 +24,4 @@ bot.on("message", message => {
   }
 });
 
-bot.login(config.discord_token);
+bot.login(token);
