@@ -1,1 +1,1 @@
-token  filter=crypt diff=crypt
+config.json  filter=crypt diff=crypt
