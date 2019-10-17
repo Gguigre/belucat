@@ -24,4 +24,10 @@ bot.on("message", message => {
   }
 });
 
+bot.on("message", message => {
+  if (message.member.user.username.match(/alcain/gi)) {
+    message.react("🌯");
+  }
+});
+
 bot.login(token);
