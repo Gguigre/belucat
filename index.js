@@ -13,19 +13,25 @@ bot.on("ready", function() {
 });
 
 bot.on("message", message => {
+  console.log("== New message received");
   if (message.content.match(/(.*)belucat(.*)/gi)) {
+    console.log("Contains Belucat");
     message.reply("Mew !");
   }
 });
 
 bot.on("message", message => {
+  console.log("== New message received");
   if (message.content.match(/(.*) (cat|chat)(.*)/gi)) {
+    console.log("Contains cat");
     message.react("🐈");
   }
 });
 
 bot.on("message", message => {
+  console.log("== New message received");
   if (message.member.user.username.match(/alcain/gi)) {
+    console.log("From alcain");
     message.react("🌯");
   }
 });
