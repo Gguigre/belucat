@@ -1,32 +1,16 @@
 const Discord = require("discord.js");
+const Belucat = require("./bots/belucat");
 var http = require("http");
 
-let token = "";
+let BELUCAT_TOKEN = "";
 try {
   const config = require("./config.json");
-  token = config.discord_token;
+  BELUCAT_TOKEN = config.discord_token;
 } catch {
-  token = process.env.DISCORD_TOKEN;
+  BELUCAT_TOKEN = process.env.DISCORD_TOKEN;
 }
-const bot = new Discord.Client();
 
-bot.on("ready", function() {
-  console.log("Je suis connecté !");
-});
-
-bot.on("message", message => {
-  console.log("== New message received");
-  if (message.content.match(/(.*)belucat(.*)/gi)) {
-    console.log("Contains Belucat");
-    message.reply("Mew !");
-  }
-  if (message.content.match(/(.*) (cat|chat)(.*)/gi)) {
-    console.log("Contains cat");
-    message.react("🐈");
-  }
-});
-
-bot.login(token);
+const belucat = new Belucat(BELUCAT_TOKEN);
 
 http
   .createServer(function(request, response) {})
