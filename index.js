@@ -24,10 +24,6 @@ bot.on("message", message => {
     console.log("Contains cat");
     message.react("🐈");
   }
-  if (message.member.user.username.match(/alcain/gi)) {
-    console.log("From alcain");
-    message.react("🌯");
-  }
 });
 
 bot.login(token);
