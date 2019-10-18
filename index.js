@@ -1,4 +1,6 @@
 const Discord = require("discord.js");
+var http = require("http");
+
 let token = "";
 try {
   const config = require("./config.json");
@@ -18,18 +20,10 @@ bot.on("message", message => {
     console.log("Contains Belucat");
     message.reply("Mew !");
   }
-});
-
-bot.on("message", message => {
-  console.log("== New message received");
   if (message.content.match(/(.*) (cat|chat)(.*)/gi)) {
     console.log("Contains cat");
     message.react("🐈");
   }
-});
-
-bot.on("message", message => {
-  console.log("== New message received");
   if (message.member.user.username.match(/alcain/gi)) {
     console.log("From alcain");
     message.react("🌯");
@@ -37,3 +31,7 @@ bot.on("message", message => {
 });
 
 bot.login(token);
+
+http
+  .createServer(function(request, response) {})
+  .listen(process.env.PORT || 5000);
