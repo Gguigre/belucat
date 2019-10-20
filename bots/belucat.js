@@ -8,7 +8,7 @@ class Belucat {
     });
 
     this.bot.on("message", message => {
-      console.log("== New message received");
+      console.log("== Belucat : New message received");
       if (message.content.match(/(.*)belucat(.*)/gi)) {
         console.log("Contains Belucat");
         message.reply("Mew !");
