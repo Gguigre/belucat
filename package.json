@@ -1,7 +1,10 @@
 {
   "name": "belucat",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^2.7.0",
+    "node-opus": "^0.3.3"
   },
   "scripts": {
     "start": "node index.js"
