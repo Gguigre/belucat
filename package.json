@@ -4,7 +4,8 @@
     "discord.js": "^11.5.1",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^2.7.0",
-    "node-opus": "^0.3.3"
+    "node-opus": "^0.3.3",
+    "opusscript": "^0.0.7"
   },
   "scripts": {
     "start": "node index.js"
