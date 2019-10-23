@@ -18,13 +18,18 @@ class Belucat {
 
         console.log("Contains Belucat");
         this.voiceChannel = message.member.voiceChannel;
-
+        if (!this.voiceChannel) {
+          message.react("😿");
+          return message.reply("Couldn't find you... Where are m'you ?");
+        }
         this.voiceChannel
           .join()
           .then(connection => {
+            console.log("voiceChannel joigned");
             const file = path.resolve(
               `./asset/miaou${Math.random() < 0.5 ? "" : "2"}.ogg`
             );
+            console.log("playing", file);
             const dispatcher = connection.playFile(file);
           })
           .catch(console.error);
