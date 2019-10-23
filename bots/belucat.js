@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const path = require("path");
 
+const FEEDING_INTERVAL_IN_MINUTES = 30;
+
 class Belucat {
   constructor(token) {
     this.bot = new Discord.Client();
@@ -9,11 +11,27 @@ class Belucat {
     });
 
     this.bot.on("message", message => {
+      if (this.lastFeedingTime > 1000 * 60 * FEEDING_INTERVAL_IN_MINUTES) {
+        message.reply("I'm(ew) 'ngry");
+      }
       console.log("== Belucat : New message received");
       if (message.content.match(/(.*)belucat(.*)/gi)) {
         if (message.content.match(/(.*)(dodo)(.*)/gi)) {
           this.voiceChannel.leave();
           return message.react("💤");
+        }
+
+        if (message.content.match(/\.feed\(\)/gi)) {
+          const now = new Date();
+          if (
+            now - this.lastFeedingTime <
+            1000 * 60 * FEEDING_INTERVAL_IN_MINUTES
+          ) {
+            message.react("🐱");
+          } else {
+            message.react("😻");
+          }
+          this.lastFeedingTime = new Date();
         }
 
         console.log("Contains Belucat");
